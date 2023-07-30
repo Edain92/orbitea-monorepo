@@ -1,0 +1,37 @@
+{
+  "name": "orbitea-monorepo",
+  "description": "Orbitea: An AI-powered travel management app leveraging DDD, design patterns, CQRS, and GPT-4 integration for dynamic itinerary planning.",
+  "version": "1.0.0",
+  "repository": "git@github.com:Edain92/orbitea-monorepo.git",
+  "author": "María Pizarro Cuevas <mpizarrocuevas@gmail.com>",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/Edain92/orbitea-monorepo#readme",
+  "bugs": {
+    "url": "https://github.com/Edain92/orbitea-monorepo/issues"
+  },
+  "keywords": [
+    "DDD",
+    "CQRS",
+    "Patterns",
+    "Docker",
+    "Redis",
+    "Kaftka",
+    "Jest",
+    "NestJS",
+    "MongoDB",
+    "Typescript"
+  ],
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "devDependencies": {
+    "husky": "^8.0.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  }
+}
