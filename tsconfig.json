@@ -21,8 +21,9 @@
 
     /* Type Checking */
     "strict": true /* Enable all strict type-checking options. */,
+    /* Completeness */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  "include": ["backend", "frontend"],
-  "references": [{ "path": "backend" }, { "path": "frontend" }]
+  "include": ["apps/*/src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

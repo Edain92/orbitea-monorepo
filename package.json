@@ -2,7 +2,10 @@
   "name": "orbitea-monorepo",
   "description": "Orbitea: An AI-powered travel management app leveraging DDD, design patterns, CQRS, and GPT-4 integration for dynamic itinerary planning.",
   "version": "1.0.0",
-  "repository": "git@github.com:Edain92/orbitea-monorepo.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Edain92/orbitea-monorepo.git"
+  },
   "author": "María Pizarro Cuevas <mpizarrocuevas@gmail.com>",
   "license": "UNLICENSED",
   "homepage": "https://github.com/Edain92/orbitea-monorepo#readme",
@@ -21,18 +24,39 @@
     "MongoDB",
     "Typescript"
   ],
-  "private": true,
-  "workspaces": [
-    "backend",
-    "frontend"
-  ],
   "devDependencies": {
+    "@types/jest": "^29.5.3",
+    "eslint": "^8.46.0",
+    "eslint-config-xo": "^0.43.1",
     "husky": "^8.0.3",
-    "typescript": "^5.1.6"
+    "jest": "^29.6.2",
+    "lerna": "^7.1.4",
+    "typescript": "^5.1.6",
+    "yarn": "^1.22.19"
+  },
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "npx lerna run start",
+    "build": "tsc",
+    "test": "lerna run test --stream",
+    "eslint": "npx eslint 'apps/*/src/**/*.ts'",
+    "prepare": "husky install",
+    "-----": "---------CI----------",
+    "ci:test": "lerna run test -- --coverage --watchAll=false"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      "pre-commit": "npm run test"
     }
+  },
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "dependencies": {
+    "prettier": "^3.0.0"
   }
 }
