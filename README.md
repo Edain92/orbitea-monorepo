@@ -19,26 +19,40 @@ An AI-powered travel management app leveraging DDD, design patterns, CQRS, and G
 
 ---
 
-## Table of Contents
+## How to Install and Run the Project
 
-- [I. Introduction](#i-introduction)
-  - [Overview](#overview)
-  - [Business Requirements](#business-requirements)
-- [II. Technologies and Technical Features](#ii-technologies-and-technical-features)
-  - [Technical Features](#technical-features)
-  - [Technologies Used - Overview](#technologies-used---overview)
-- [III. Quick start - running the App](#iii-quick-start---running)
-  - [Prerequisites](#prerequisites)
-  - [Running the app](#running-the-app)
-- [IV. Design Process and Decisions](#iv-design-process-and-decisions)
-  - [Design Process - Event Storming](#design-process---event-storming)
-  - [Design Decisions](#design-decisions)
-- [V. Running in development mode](#v-running-in-development-mode)
-  - [A. Project Setup](#a-project-setup)
-  - [B. Application Validation](#b-application-validation)
-  - [C. Understanding the project structure](#c-understanding-the-project-structure)
-- [VI. Conclusion](#vi-conclusion)
-  - [❓ Questions](#-questions)
+```bash
+npm install
+npm run start
+```
+
+## How to Use the Project
+
+- You can access to this route in your browser:
+
+*<http://localhost:3000/ping>*
+
+- or import this cURL into your Postman:
+
+```bash
+curl --location 'http://localhost:3000/ping'
+```
+
+**The request reponse is going to be a message like this: "pong".**
+
+## How to Test the Project
+
+### Unit Testing
+
+```bash
+npm run test
+```
+
+### E2E Testing
+
+```bash
+npm run test:e2e
+```
 
 ---
 
