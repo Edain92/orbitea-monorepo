@@ -41,7 +41,7 @@
   },
   "scripts": {
     "start": "npx lerna run start",
-    "build": "tsc",
+    "build": "npx lerna run build",
     "test": "lerna run test --stream",
     "eslint": "npx eslint 'apps/*/src/**/*.ts'",
     "prepare": "husky install",
