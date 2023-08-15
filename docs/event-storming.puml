@@ -1,0 +1,65 @@
+@startuml event-storming
+
+title Orbitea: Bounded Context
+
+!define SPRITESURL https://raw.githubusercontent.com/PlantUML/sprites/master/dist
+!define USER_SPRITE ![user](SPRITESURL/user.png)
+!define DOCUMENT_SPRITE ![document](SPRITESURL/document.png)
+!define ARROW_SPRITE ![arrow](SPRITESURL/arrow.png)
+
+[Database] as Database #A38DCA
+
+package "User Registration" {
+   [User] as User #F0C987
+   [UserProfile] as Profile #B5EAD7
+   [Email Service] as EmailService #86C5DA
+   [Auth Service] as AuthService #87BBA2
+
+   User --> Profile : Creates
+   User --> AuthService : Log in
+
+   User --> Database : Store user data
+   Profile --> Database : Store profile data
+
+   User --> EmailService : Send verification email
+
+   AuthService --> User : Successful login
+}
+
+package "Calendar Integration" {
+   [User] as User2 #F0C987
+   [Itinerary] as Itinerary5 #C6A4E1
+
+   User2 --> User2 : Connect calendar
+   User2 --> User2 : Sync events
+   User2 --> Itinerary5 : Event added
+}
+
+package "Itinerary Planning" {
+    [User] as User3 #F0C987
+    [Itinerary] as Itinerary #C6A4E1
+    [AI System] as AI #86C5DA
+
+    User3 --> Itinerary : Creates
+    User3 --> Itinerary : Modifies
+    User3 --> AI : Get suggestions
+
+    Itinerary --> Database : Store itinerary data
+
+    AI --> User3 : Provide suggestions
+}
+
+package "Community and Socialization" {
+   [User] as User4 #F0C987
+   [Itinerary] as Itinerary3 #C6A4E1
+
+   User3 --> User4 : Follow
+   User4 --> Itinerary3 : Copy
+   User4 --> Itinerary3 : Rate
+   User4 --> Itinerary3 : Comment
+
+   User4 --> User3 : Notification
+   Itinerary3 --> User4 : Event
+}
+
+@enduml
