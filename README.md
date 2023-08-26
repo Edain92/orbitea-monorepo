@@ -133,7 +133,8 @@ This Bounded Context collaborates with other contexts like "Community and Social
 
 - You can access to this route in your browser:
 
-  _<http://localhost:3000/ping>_
+  - Local: _<http://localhost:3000/ping>_
+  - Web Server: _<https://orbitea-service.onrender.com/ping>_
 
 - or import this cURL into your Postman:
 
