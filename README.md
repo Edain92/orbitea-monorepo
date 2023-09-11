@@ -64,12 +64,6 @@ _Use Cases:_
 - Login User: Manages user authentication, verifying credentials and granting access upon successful login.
 - Update User Profile: Allows users to modify their profile information, such as changing their avatar or updating preferences.
 
-_Integration Points:_
-
-- Database: Stores user account and profile information securely.
-- Email Service: Sends confirmation emails, password reset requests, etc.
-- Authentication Service: Manages user authentication and token generation.
-
 _Validations:_
 
 - User Registration: Verification of email availability, password strength, confirmation of matching passwords, and duplicate registration prevention.
