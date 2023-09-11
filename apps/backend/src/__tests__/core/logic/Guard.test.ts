@@ -75,7 +75,7 @@ describe('Guard', () => {
 
       expect(result.succeeded).toBe(false);
       expect(result.message).toBe(
-        'argumentName isn\'t oneOf the correct types in ["value1","value2","value3"]. Got "value4".'
+        'argumentName isn\'t oneOf the correct types in ["value1","value2","value3"]. Got "value4".',
       );
     });
   });
@@ -125,7 +125,9 @@ describe('Guard', () => {
       const result = Guard.validPattern('12-45-6789', pattern, 'argumentName');
 
       expect(result.succeeded).toBe(false);
-      expect(result.message).toBe('argumentName is not following the pattern provided: \\d{3}-\\d{2}-\\d{4}.');
+      expect(result.message).toBe(
+        'argumentName is not following the pattern provided: \\d{3}-\\d{2}-\\d{4}.',
+      );
     });
   });
 });

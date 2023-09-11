@@ -15,4 +15,3 @@ describe('GenericAppError.UnexpectedError', () => {
     expect(unexpectedError.isSuccess).toBe(false);
   });
 });
-

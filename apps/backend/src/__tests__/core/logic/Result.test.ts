@@ -43,10 +43,14 @@ describe('Result', () => {
     const successResult2 = Result.ok('success 2');
     const successResult3 = Result.ok('success 3');
 
-    const combinedResult = Result.combine([successResult1, successResult2, successResult3]);
+    const combinedResult = Result.combine([
+      successResult1,
+      successResult2,
+      successResult3,
+    ]);
 
     expect(combinedResult.isSuccess).toBe(true);
-    expect(combinedResult.error).toBe("");
+    expect(combinedResult.error).toBe('');
   });
 
   it('Should combine results and return the first failure', () => {
@@ -54,7 +58,11 @@ describe('Result', () => {
     const failureResult = Result.fail('failure');
     const anotherFailureResult = Result.fail('another failure');
 
-    const combinedResult = Result.combine([successResult, failureResult, anotherFailureResult]);
+    const combinedResult = Result.combine([
+      successResult,
+      failureResult,
+      anotherFailureResult,
+    ]);
 
     expect(combinedResult.isFailure).toBe(true);
     expect(combinedResult.errorValue()).toBe('failure');
