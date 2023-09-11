@@ -1,4 +1,4 @@
-import { Result, left, right } from '../core/logic/Result';
+import { Result, left, right } from '../../../core/logic/Result';
 
 describe('Result', () => {
   it('Should create a successful result with a value', () => {
@@ -19,6 +19,18 @@ describe('Result', () => {
     expect(result.errorValue()).toBe(error);
   });
 
+  it('Should throw an error when creating a successful result with an error', () => {
+    expect(() => new Result(true, 'Error message')).toThrow(
+      'InvalidOperation: A result cannot be successful and contain an error',
+    );
+  });
+
+  it('Should throw an error when creating a failing result without an error', () => {
+    expect(() => new Result(false)).toThrow(
+      'InvalidOperation: A failing result needs to contain an error message',
+    );
+  });
+
   it('Should throw an error when trying to get the value of a failing result', () => {
     const error = 'failure';
     const result = Result.fail(error);
@@ -26,10 +38,23 @@ describe('Result', () => {
     expect(() => result.getValue()).toThrow();
   });
 
+  it('Should combine results and return success when all results are successful', () => {
+    const successResult1 = Result.ok('success 1');
+    const successResult2 = Result.ok('success 2');
+    const successResult3 = Result.ok('success 3');
+
+    const combinedResult = Result.combine([successResult1, successResult2, successResult3]);
+
+    expect(combinedResult.isSuccess).toBe(true);
+    expect(combinedResult.error).toBe("");
+  });
+
   it('Should combine results and return the first failure', () => {
     const successResult = Result.ok('success');
     const failureResult = Result.fail('failure');
-    const combinedResult = Result.combine([successResult, failureResult]);
+    const anotherFailureResult = Result.fail('another failure');
+
+    const combinedResult = Result.combine([successResult, failureResult, anotherFailureResult]);
 
     expect(combinedResult.isFailure).toBe(true);
     expect(combinedResult.errorValue()).toBe('failure');
