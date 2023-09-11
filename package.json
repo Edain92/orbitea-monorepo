@@ -1,6 +1,6 @@
 {
   "name": "orbitea-monorepo",
-  "description": "Orbitea: An AI-powered travel management app leveraging DDD, design patterns, CQRS, and GPT-4 integration for dynamic itinerary planning.",
+  "description": "Orbitea: An AI-powered travel management app leveraging DDD, design patterns, CQRS, and AI integration for dynamic itinerary planning.",
   "version": "1.0.0",
   "repository": {
     "type": "git",
@@ -16,9 +16,7 @@
     "DDD",
     "CQRS",
     "Patterns",
-    "Docker",
     "Redis",
-    "Kaftka",
     "Jest",
     "NestJS",
     "MongoDB",
