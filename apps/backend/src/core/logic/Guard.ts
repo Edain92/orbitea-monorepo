@@ -95,18 +95,14 @@ export class Guard {
     max: number,
     argumentName: string,
   ): IGuardResult {
-    let failingResult: IGuardResult = {};
-
     for (const num of numbers) {
       const numIsInRangeResult = this.inRange(num, min, max, argumentName);
-      if (!numIsInRangeResult.succeeded) failingResult = numIsInRangeResult;
-    }
-
-    if (failingResult) {
-      return {
-        succeeded: false,
-        message: `${argumentName} is not within the range.`,
-      };
+      if (!numIsInRangeResult.succeeded) {
+        return {
+          succeeded: false,
+          message: `${argumentName} is not within the range.`,
+        };
+      }
     }
 
     return { succeeded: true };
