@@ -1,4 +1,3 @@
-
 interface IUseCaseErrorError {
   message: string;
 }

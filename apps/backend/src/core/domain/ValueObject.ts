@@ -1,4 +1,4 @@
-import { shallowEqual } from "shallow-equal-object";
+import { shallowEqual } from 'shallow-equal-object';
 
 interface ValueObjectProps {
   [index: string]: any;
@@ -23,6 +23,6 @@ export abstract class ValueObject<T extends ValueObjectProps> {
     if (vo.props === undefined) {
       return false;
     }
-    return shallowEqual(this.props, vo.props)
+    return shallowEqual(this.props, vo.props);
   }
 }

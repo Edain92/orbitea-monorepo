@@ -1,4 +1,3 @@
-
 import { UniqueEntityID } from './UniqueEntityID';
 
 const isEntity = (v: unknown): v is Entity<unknown> => {
@@ -15,7 +14,6 @@ export abstract class Entity<T> {
   }
 
   public equals(object?: Entity<T>): boolean {
-
     if (object == null || object == undefined) {
       return false;
     }

@@ -1,8 +1,8 @@
 import crypto from 'node:crypto';
-import { Identifier } from './Identifier'
+import { Identifier } from './Identifier';
 
-export class UniqueEntityID extends Identifier<string | number>{
+export class UniqueEntityID extends Identifier<string | number> {
   constructor(id?: string | number) {
-    super(id ?? crypto.randomUUID())
+    super(id ?? crypto.randomUUID());
   }
 }
