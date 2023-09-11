@@ -1,4 +1,4 @@
-import crypto from 'node:crypto';
+import * as crypto from 'crypto';
 import { Identifier } from './Identifier';
 
 export class UniqueEntityID extends Identifier<string | number> {

@@ -67,7 +67,10 @@
     "testEnvironment": "node",
     "coveragePathIgnorePatterns": [
       "main.ts",
-      "UseCaseError.ts"
+      "app.module.ts",
+      "UseCaseError.ts",
+      "ValueObject.ts",
+      "Entity.ts"
     ]
   }
 }
