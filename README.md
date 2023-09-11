@@ -11,7 +11,6 @@ An AI-powered travel management app leveraging DDD, design patterns, CQRS, and G
 ![image](https://img.shields.io/badge/nestjs-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
 ![image](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
 ![image](https://img.shields.io/badge/GraphQl-E10098?style=for-the-badge&logo=graphql&logoColor=white)
-![image](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
 ![image](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![image](https://img.shields.io/badge/redis-CC0000.svg?&style=for-the-badge&logo=redis&logoColor=white)
 ![image](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
@@ -22,13 +21,13 @@ An AI-powered travel management app leveraging DDD, design patterns, CQRS, and G
 ## Table of Contents
 
 1. [Bounded Context Definition](#bounded-context-definition)
-    - [User Registration and Authentication](#user-registration-and-authentication)
-    - [Itinerary Planning](#itinerary-planning)
+   - [User Registration and Authentication](#user-registration-and-authentication)
+   - [Itinerary Planning](#itinerary-planning)
 2. [How to Install and Run the Project](#how-to-install-and-run-the-project)
 3. [How to Use the Project](#how-to-use-the-project)
 4. [How to Test the Project](#how-to-test-the-project)
-    - [Unit Testing](#unit-testing)
-    - [E2E Testing](#e2e-testing)
+   - [Unit Testing](#unit-testing)
+   - [E2E Testing](#e2e-testing)
 
 ### Bounded Context Definition
 
@@ -37,6 +36,8 @@ An AI-powered travel management app leveraging DDD, design patterns, CQRS, and G
 #### User Registration and Authentication
 
 This Bounded Context is responsible for user authentication and management. It includes functionalities such as user registration, login, and profile management. Its primary focus is on maintaining user accounts, ensuring secure access, and managing user-related data.
+
+![Alt text](./docs/boundedcontext-user.png)
 
 <details>
 <summary>Domain analysis</summary>
@@ -69,17 +70,21 @@ _Integration Points:_
 - Email Service: Sends confirmation emails, password reset requests, etc.
 - Authentication Service: Manages user authentication and token generation.
 
-_Events to Other Bounded Contexts:_
+_Validations:_
 
-- User Registered event can trigger actions in other contexts, such as notifying the "Community and Socialization" context to create an initial social profile for the user.
+- User Registration: Verification of email availability, password strength, confirmation of matching passwords, and duplicate registration prevention.
+- Login: Verify user-provided credentials to ensure they match stored records.
+- Profile Update: Implement validations to ensure that profile updates are consistent and secure, and that changes are valid.
 
-This Bounded Context collaborates closely with other contexts like "Community and Socialization" for user interactions and "Itinerary Planning" for personalized travel planning. It ensures a secure and seamless user experience by managing user accounts, authentication, and related processes.
+This Bounded Context collaborates closely with "Itinerary Planning" for personalized travel planning. It ensures a secure and seamless user experience by managing user accounts, authentication, and related processes.
 
 </details>
 
 #### Itinerary Planning
 
 This Bounded Context is dedicated to the process of planning travel itineraries for users. It revolves around assisting users in creating well-structured travel plans based on their preferences, destinations, and available time. The context involves interactions with an AI system to suggest optimal plans.
+
+![Alt text](./docs/boundedcontext-itinerary.png)
 
 <details>
 <summary>Domain analysis</summary>
@@ -107,16 +112,11 @@ _Use Cases:_
 - Update Itinerary: Allows users to modify an existing itinerary by adding or removing destinations and activities.
 - Get AI Suggestions: Interacts with the AI system to retrieve itinerary suggestions based on user preferences and constraints.
 
-_Integration Points:_
+_Validations:_
 
-- AI System: Communicates with the AI system to provide itinerary suggestions and recommendations.
-- Database: Stores user-generated itineraries and relevant details.
-
-_Events to Other Bounded Contexts:_
-
-- Itinerary Created and Itinerary Updated events could inform the "Community and Socialization" context of newly created itineraries for sharing and interaction.
-
-This Bounded Context collaborates with other contexts like "Community and Socialization" for sharing travel plans.
+- Validation of Dates and Times: Ensure that the dates and times entered for the TimeFrames are consistent and that the planned activities do not overlap in time.
+- Destination Validation: Verify that the destinations entered exist.
+- Validation of Activities: Verify that the activities entered are valid and available at the selected destination.
 
 </details>
 
@@ -124,10 +124,10 @@ This Bounded Context collaborates with other contexts like "Community and Social
 
 ### How to Install and Run the Project
 
-  ```bash
-  npm install
-  npm run start
-  ```
+```bash
+npm install
+npm run start
+```
 
 ### How to Use the Project
 
@@ -148,15 +148,15 @@ This Bounded Context collaborates with other contexts like "Community and Social
 
 #### Unit Testing
 
-  ```bash
-  npm run test
-  ```
+```bash
+npm run test
+```
 
 #### E2E Testing
 
-  ```bash
-  npm run test:e2e
-  ```
+```bash
+npm run test:e2e
+```
 
 ---
 

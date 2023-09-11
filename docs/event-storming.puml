@@ -26,9 +26,9 @@ package "User Registration" {
    AuthService --> User : Successful login
 }
 
-package "Calendar Integration" {
-   [User] as User2 #F0C987
-   [Itinerary] as Itinerary5 #C6A4E1
+package "Calendar Integration" #LightGray {
+   [User] as User2
+   [Itinerary] as Itinerary5
 
    User2 --> User2 : Connect calendar
    User2 --> User2 : Sync events
@@ -49,9 +49,9 @@ package "Itinerary Planning" {
     AI --> User3 : Provide suggestions
 }
 
-package "Community and Socialization" {
-   [User] as User4 #F0C987
-   [Itinerary] as Itinerary3 #C6A4E1
+package "Community and Socialization" #LightGray {
+   [User] as User4
+   [Itinerary] as Itinerary3
 
    User3 --> User4 : Follow
    User4 --> Itinerary3 : Copy

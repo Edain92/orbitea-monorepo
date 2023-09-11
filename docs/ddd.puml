@@ -1,0 +1,198 @@
+@startuml user-registration-authentication-domain
+
+top to bottom direction
+
+!define ENTITY_COLOR LightPink
+!define VALUE_OBJECT_COLOR LightBlue
+!define EVENT_COLOR LightCoral
+!define USECASE_COLOR LightGoldenRodYellow
+!define VALIDATION_COLOR LightGrey
+
+package "User Registration and Authentication" {
+
+    ' Entities and Aggregates
+    class User <<(E,ENTITY_COLOR) Entity>> #line:black;back:LightSteelBlue {
+        + ID : string
+        + Email : Email
+        + Password : Password
+        + IsActive : bool
+        + RegistrationDate : date
+    }
+
+    ' Value Objects
+    class Email <<(V,VALUE_OBJECT_COLOR) Value Object>> #line:black;back:LightYellow {
+        + Value : string
+    }
+
+    class Password <<(V,VALUE_OBJECT_COLOR) Value Object>> #line:black;back:LightYellow {
+        + Value : string
+    }
+
+    ' Domain Events
+    class UserRegistered <<(D,EVENT_COLOR) Domain Event>> #line:black;back:LightCyan {
+        + UserId : string
+        + RegistrationDate : date
+    }
+
+    class UserLoggedIn <<(D,EVENT_COLOR) Domain Event>> #line:black;back:LightCyan {
+        + UserId : string
+        + LoginDate : date
+    }
+
+    class UserUpdated <<(D,EVENT_COLOR) Domain Event>> #line:black;back:LightCyan {
+        + UserId : string
+        + UpdateDate : date
+    }
+
+    ' Use Cases
+    class RegisterUser <<(U, USECASE_COLOR) Use Case>> #line:black;back:Thistle {
+        + RegisterUser(email: Email, password: Password) : User
+    }
+
+    class LoginUser <<(U, USECASE_COLOR) Use Case>> #line:black;back:Thistle {
+        + LoginUser(email: Email, password: Password) : User
+    }
+
+    class UpdateUser <<(U, USECASE_COLOR) Use Case>> #line:black;back:Thistle {
+        + UpdateUser(email: Email, password: Password, IsActive: bool) : User
+    }
+
+    ' Repositories Abstraction
+    interface UserRepository {
+        + GetById(id: string) : User
+        + Save(user: User)
+    }
+
+    ' Validations
+    class EmailValidation <<(V, VALIDATION_COLOR) Validation>> #line:black;back:Bisque {
+        + ValidateEmail(email: Email) : ValidationResult
+    }
+
+    class PasswordValidation <<(V, VALIDATION_COLOR) Validation>> #line:black;back:Bisque {
+        + ValidatePassword(email: Email, password: Password) : ValidationResult
+    }
+}
+
+' Relationships
+User --> UserRepository
+
+User --> EmailValidation
+User --> PasswordValidation
+
+EmailValidation --> RegisterUser
+EmailValidation --> UpdateUser
+EmailValidation --> LoginUser
+PasswordValidation --> RegisterUser
+PasswordValidation --> UpdateUser
+PasswordValidation --> LoginUser
+
+RegisterUser --> UserRegistered
+LoginUser --> UserLoggedIn
+UpdateUser --> UserUpdated
+
+' Relationships between Value Objects and Entities
+User --> Email
+User --> Password
+
+@enduml
+
+@startuml itinerary-planning-domain
+
+top to bottom direction
+
+!define ENTITY_COLOR LightPink
+!define VALUE_OBJECT_COLOR LightBlue
+!define EVENT_COLOR LightCoral
+!define USECASE_COLOR LightGoldenRodYellow
+!define VALIDATION_COLOR LightGrey
+
+package "Itinerary Planning" {
+
+    ' Entities and Aggregates
+    class Itinerary <<(E,ENTITY_COLOR) Entity>> #line:black;back:LightSteelBlue {
+        + ID : string
+        + Destinations : List<Destination>
+        + Activities : List<Activity>
+        + TimeFrames : List<TimeFrame>
+    }
+
+    ' Repositories Abstraction
+    interface ItineraryRepository {
+        + GetById(id: string) : Itinerary
+        + Save(itinerary: Itinerary)
+    }
+
+    ' Value Objects
+    class Destination <<(V,VALUE_OBJECT_COLOR) Value Object>> #line:black;back:LightYellow {
+        + Location : string
+        + Name : string
+        + Attractions : List<string>
+    }
+
+    class Activity <<(V,VALUE_OBJECT_COLOR) Value Object>> #line:black;back:LightYellow {
+        + Description : string
+        + Type : string
+    }
+
+    class TimeFrame <<(V,VALUE_OBJECT_COLOR) Value Object>> #line:black;back:LightYellow {
+        + Start : datetime
+        + End : datetime
+    }
+
+    ' Domain Events
+    class ItineraryCreated <<(D,EVENT_COLOR) Domain Event>> #line:black;back:LightCyan {
+        + ItineraryId : string
+        + UserId : string
+    }
+
+    class ItineraryUpdated <<(D,EVENT_COLOR) Domain Event>> #line:black;back:LightCyan {
+        + ItineraryId : string
+        + UserId : string
+    }
+
+    ' Use Cases
+    class CreateItinerary <<(U, USECASE_COLOR) Use Case>> #line:black;back:Thistle {
+        + CreateItinerary(user: User, destinations: List<Destination>, activities: List<Activity>, timeFrames: List<TimeFrame>) : Itinerary
+    }
+
+    class UpdateItinerary <<(U, USECASE_COLOR) Use Case>> #line:black;back:Thistle {
+        + UpdateItinerary(itinerary: Itinerary, destinations: List<Destination>, activities: List<Activity>, timeFrames: List<TimeFrame>) : Itinerary
+    }
+
+    ' Validations
+    class DateAndTimeValidation <<(V, VALIDATION_COLOR) Validation>> #line:black;back:Bisque {
+        + ValidateTimeFrames(timeFrames: List<TimeFrame>, activities: List<Activity>) : ValidationResult
+    }
+
+    class DestinationValidation <<(V, VALIDATION_COLOR) Validation>> #line:black;back:Bisque {
+        + ValidateDestinations(destinations: List<Destination>) : ValidationResult
+    }
+
+    class ActivityValidation <<(V, VALIDATION_COLOR) Validation>> #line:black;back:Bisque {
+        + ValidateActivities(activities: List<Activity>, destinations: List<Destination>) : ValidationResult
+    }
+
+    ' Relationships
+    Itinerary --> Destination
+    Itinerary --> Activity
+    Itinerary --> TimeFrame
+
+    Itinerary --> ItineraryRepository
+
+    Itinerary --> DateAndTimeValidation
+    Itinerary --> DestinationValidation
+    Itinerary --> ActivityValidation
+
+    DateAndTimeValidation --> CreateItinerary
+    DestinationValidation --> CreateItinerary
+    ActivityValidation --> CreateItinerary
+
+    DateAndTimeValidation --> UpdateItinerary
+    DestinationValidation --> UpdateItinerary
+    ActivityValidation --> UpdateItinerary
+
+    CreateItinerary --> ItineraryCreated
+    UpdateItinerary --> ItineraryUpdated
+}
+@enduml
+
