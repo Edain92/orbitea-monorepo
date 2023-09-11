@@ -1,8 +1,17 @@
 # Orbitea [WIP]
 
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Edain92_orbitea-monorepo&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Edain92_orbitea-monorepo)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Edain92_orbitea-monorepo&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Edain92_orbitea-monorepo)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Edain92_orbitea-monorepo&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Edain92_orbitea-monorepo)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Edain92_orbitea-monorepo&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Edain92_orbitea-monorepo)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Edain92_orbitea-monorepo&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Edain92_orbitea-monorepo)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Edain92_orbitea-monorepo&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Edain92_orbitea-monorepo)
+
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Edain92_orbitea-monorepo&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Edain92_orbitea-monorepo)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Edain92_orbitea-monorepo&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Edain92_orbitea-monorepo)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Edain92_orbitea-monorepo&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Edain92_orbitea-monorepo)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Edain92_orbitea-monorepo&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=Edain92_orbitea-monorepo)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Edain92_orbitea-monorepo&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=Edain92_orbitea-monorepo)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Edain92_orbitea-monorepo&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=Edain92_orbitea-monorepo)
 
 An AI-powered travel management app leveraging DDD, design patterns, CQRS, and AI integration for dynamic itinerary planning.
 
