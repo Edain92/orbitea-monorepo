@@ -4,7 +4,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Edain92_orbitea-monorepo&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Edain92_orbitea-monorepo)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Edain92_orbitea-monorepo&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Edain92_orbitea-monorepo)
 
-An AI-powered travel management app leveraging DDD, design patterns, CQRS, and GPT-4 integration for dynamic itinerary planning.
+An AI-powered travel management app leveraging DDD, design patterns, CQRS, and AI integration for dynamic itinerary planning.
 
 **Read about the full idea for this project [here](docs/IDEA.md)!**
 
