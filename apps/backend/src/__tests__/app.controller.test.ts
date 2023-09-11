@@ -14,14 +14,14 @@ describe('AppController', () => {
     appController = app.get<AppController>(AppController);
   });
 
-  describe('root', () => {
-    it('should return "Hello World!"', () => {
+  describe('Root', () => {
+    it('Should return "Hello World!"', () => {
       expect(appController.getHello()).toBe('Hello World!');
     });
   });
 
   describe('/ping', () => {
-    it('should return "pong"', () => {
+    it('Should return "pong"', () => {
       expect(appController.getPing()).toBe('pong');
     });
   });
