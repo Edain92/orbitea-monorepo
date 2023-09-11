@@ -59,6 +59,7 @@
     "apps/*"
   ],
   "dependencies": {
-    "prettier": "^3.0.0"
+    "prettier": "^3.0.0",
+    "shallow-equal-object": "^1.1.1"
   }
 }
