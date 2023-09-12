@@ -8,3 +8,8 @@ type ActivityProps = {
   description: ActivityDescription;
   type: ActivityType[];
 };
+
+type TimeFrameProps = {
+  start: Date;
+  end: Date;
+};
