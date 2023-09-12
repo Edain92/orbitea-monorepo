@@ -131,7 +131,7 @@ package "Itinerary Planning" {
 
     class Activity <<(V,VALUE_OBJECT_COLOR) Value Object>> #line:black;back:LightYellow {
         + Description : string
-        + Type : string
+        + Type : List<string>
     }
 
     class TimeFrame <<(V,VALUE_OBJECT_COLOR) Value Object>> #line:black;back:LightYellow {
