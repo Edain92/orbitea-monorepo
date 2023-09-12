@@ -161,7 +161,7 @@ package "Itinerary Planning" {
 
     ' Validations
     class DateAndTimeValidation <<(V, VALIDATION_COLOR) Validation>> #line:black;back:Bisque {
-        + ValidateTimeFrames(timeFrames: List<TimeFrame>, activities: List<Activity>) : ValidationResult
+        + ValidateTimeFrames(timeFrames: List<TimeFrame>) : ValidationResult
     }
 
     class DestinationValidation <<(V, VALIDATION_COLOR) Validation>> #line:black;back:Bisque {
@@ -169,7 +169,7 @@ package "Itinerary Planning" {
     }
 
     class ActivityValidation <<(V, VALIDATION_COLOR) Validation>> #line:black;back:Bisque {
-        + ValidateActivities(activities: List<Activity>, destinations: List<Destination>) : ValidationResult
+        + ValidateActivities(activities: List<Activity>) : ValidationResult
     }
 
     ' Relationships
