@@ -53,8 +53,7 @@ This Bounded Context is responsible for user authentication and management. It i
 
 _Entities and Aggregates:_
 
-- User Account: Represents the user's account information, including email, password, and other relevant details.
-- User Profile: Contains additional user information, such as name, avatar, and preferences.
+- User: Represents the user's account information, including email, password, and other relevant details.
 
 _Value Objects:_
 
@@ -96,7 +95,6 @@ _Entities and Aggregates:_
 
 - User: Represents the user who is planning the travel itinerary.
 - Itinerary: Contains information about the planned travel schedule, including destinations, activities, and time frames.
-- AI System: A separate system that assists in generating itinerary suggestions.
 
 _Value Objects:_
 
