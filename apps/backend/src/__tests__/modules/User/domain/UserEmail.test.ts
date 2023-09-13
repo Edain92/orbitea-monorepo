@@ -1,4 +1,4 @@
-import { UserEmail } from '../../../modules/value-objects/UserEmail';
+import { UserEmail } from '../../../../modules/User/domain/UserEmail';
 
 describe('ValueObject: UserEmail', () => {
   const validEmail = 'test@test.com';

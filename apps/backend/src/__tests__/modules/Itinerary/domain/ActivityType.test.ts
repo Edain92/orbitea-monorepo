@@ -1,4 +1,4 @@
-import { ActivityType } from '../../../modules/value-objects/ActivityType';
+import { ActivityType } from '../../../../modules/Itinerary/domain/ActivityType';
 
 describe('ValueObject: ActivityType', () => {
   describe('Testing create', () => {

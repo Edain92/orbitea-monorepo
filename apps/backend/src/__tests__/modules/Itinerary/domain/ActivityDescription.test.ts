@@ -1,4 +1,4 @@
-import { ActivityDescription } from '../../../modules/value-objects/ActivityDescription';
+import { ActivityDescription } from '../../../../modules/Itinerary/domain/ActivityDescription';
 
 describe('ValueObject: ActivityDescription', () => {
   describe('Testing create', () => {

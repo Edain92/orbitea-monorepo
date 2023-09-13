@@ -1,4 +1,4 @@
-import { Attraction } from '../../../modules/value-objects/Attraction';
+import { Attraction } from '../../../../modules/Itinerary/domain/Attraction';
 
 describe('ValueObject: Attraction', () => {
   describe('Testing create', () => {

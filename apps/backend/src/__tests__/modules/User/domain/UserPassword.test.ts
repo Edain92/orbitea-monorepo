@@ -1,4 +1,4 @@
-import { UserPassword } from '../../../modules/value-objects/UserPassword';
+import { UserPassword } from '../../../../modules/User/domain/UserPassword';
 
 describe('ValueObject: UserPassword', () => {
   const validPassword = 'Password1*';

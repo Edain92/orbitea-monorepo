@@ -1,4 +1,4 @@
-import { TimeFrame } from '../../../modules/value-objects/TimeFrame';
+import { TimeFrame } from '../../../../modules/Itinerary/domain/TimeFrame';
 
 describe('TimeFrame', () => {
   it('Should create a valid TimeFrame object', () => {

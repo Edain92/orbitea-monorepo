@@ -1,6 +1,6 @@
-import { Activity } from '../../../modules/value-objects/Activity';
-import { ActivityDescription } from '../../../modules/value-objects/ActivityDescription';
-import { ActivityType } from '../../../modules/value-objects/ActivityType';
+import { Activity } from '../../../../modules/Itinerary/domain/Activity';
+import { ActivityDescription } from '../../../../modules/Itinerary/domain/ActivityDescription';
+import { ActivityType } from '../../../../modules/Itinerary/domain/ActivityType';
 
 describe('Activity', () => {
   it('Should create a valid Activity object', () => {

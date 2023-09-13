@@ -1,4 +1,4 @@
-import { DestinationLocation } from '../../../modules/value-objects/DestinationLocation';
+import { DestinationLocation } from '../../../../modules/Itinerary/domain/DestinationLocation';
 
 describe('ValueObject: DestinationLocation', () => {
   describe('Testing create', () => {
