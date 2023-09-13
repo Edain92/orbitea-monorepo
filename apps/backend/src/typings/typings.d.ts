@@ -13,3 +13,12 @@ type TimeFrameProps = {
   start: Date;
   end: Date;
 };
+
+interface IDomainEvent {
+  dateTimeOccurred: Date;
+  getAggregateId(): UniqueEntityID;
+}
+
+interface IHandle {
+  setupSubscriptions(): void;
+}
